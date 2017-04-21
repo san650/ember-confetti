@@ -1,17 +1,20 @@
 {
   "name": "ember-confetti",
   "version": "1.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Confetti rain components for Ember applications",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "confetti",
+    "component"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Santiago Ferreira <san650@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "homepage": "https://github.com/san650/ember-confetti/",
+  "repository": "https://github.com/san650/ember-confetti.git",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
