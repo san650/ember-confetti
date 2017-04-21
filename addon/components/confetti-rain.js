@@ -135,19 +135,13 @@ export default Ember.Component.extend({
   },
 
   update() {
-    var remainingFlakes = 0;
     var particle;
     this.incrementProperty('angle', 0.01);
     this.incrementProperty('tiltAngle', 0.1);
 
     for (var i = 0; i < MAX_PARTICLES; i++) {
       particle = this.get('particles')[i];
-
       this.stepParticle(particle, i);
-
-      if (particle.y <= this.get('windowHeight')) {
-        remainingFlakes++;
-      }
       this.checkForReposition(particle, i);
     }
   },
