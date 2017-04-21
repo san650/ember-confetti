@@ -76,7 +76,7 @@ export default Ember.Component.extend({
   attributeBindings: ['style'],
 
   style: computed(function() {
-    return `
+    return Ember.String.htmlSafe(`
       pointer-events: none;
       position: fixed;
       top: 0;
@@ -86,7 +86,7 @@ export default Ember.Component.extend({
       z-index: ${MAX_ZINDEX};
       width: 100%;
       height: 100%;
-    `;
+    `);
   }),
 
   particles: computed(function() {
