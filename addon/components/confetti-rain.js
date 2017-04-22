@@ -107,21 +107,23 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    //canvas init
-    var canvas = this.$().get(0);
+    Ember.run.schedule('afterRender', () => {
+      //canvas init
+      var canvas = this.$().get(0);
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-    this.setProperties({
-      context: canvas.getContext("2d"),
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      angle: 0,
-      tiltAngle: 0
+      this.setProperties({
+        context: canvas.getContext("2d"),
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        angle: 0,
+        tiltAngle: 0
+      });
+
+      this.animationLoop();
     });
-
-    this.animationLoop();
   },
 
   draw() {
