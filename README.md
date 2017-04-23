@@ -40,6 +40,35 @@ By default `z-index` is set to max 32bit integer value, to override this you can
 
 Note that you need to use the `!important` suffix so the rule is applied correctly.
 
+### Full screen
+
+By default `confetti-rain` component will fill parent's container. If you want to render the component to fill the entire screen you can use [`ember-wormhole`](https://github.com/yapplabs/ember-wormhole#ember-wormhole--) to achieve this.
+
+```sh
+$ ember install ember-wormhole
+```
+
+And then you can change your templates like this
+
+`my-foo-component.hbs`
+
+```hbs
+{{#ember-wormhole to="my-container"}}
+  {{confetti-rain}}
+{{/ember-wormhole}}
+```
+
+And place the container at `<body>` level.
+
+`application.hbs`
+
+```hbs
+{{yield}}
+<div id="my-container"></div>
+```
+
+And that's it, now the parent container for the `confetti-rain` component will be the `<body>` tag.
+
 ## Installation
 
 To install the addon just run
