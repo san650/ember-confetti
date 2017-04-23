@@ -4,6 +4,10 @@
 
 This addon exposes an `{{confetti-rain}}` component for your ember application.
 
+![Sample](./confetti.gif)
+
+You can see it in action in this [demo page](https://san650.github.io/ember-confetti/).
+
 ## Usage
 
 Install the addon and insert the component in any template.
