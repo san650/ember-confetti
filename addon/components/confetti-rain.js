@@ -1,6 +1,7 @@
-import Ember from 'ember';
-
-const { computed } = Ember;
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/string';
+import { schedule, bind } from '@ember/runloop';
 
 const raf = window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -71,12 +72,12 @@ const colorGenerator = {
   }
 };
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'canvas',
   attributeBindings: ['style'],
 
   style: computed(function() {
-    return Ember.String.htmlSafe(`
+    return htmlSafe(`
       pointer-events: none;
       position: fixed;
       top: 0;
@@ -107,7 +108,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    Ember.run.schedule('afterRender', () => {
+    schedule('afterRender', () => {
       //canvas init
       var canvas = this.$().get(0);
 
@@ -183,7 +184,7 @@ export default Ember.Component.extend({
       return;
     }
 
-    raf(Ember.run.bind(this, 'animationLoop'));
+    raf(bind(this, 'animationLoop'));
 
     return this.draw();
   }
