@@ -1,6 +1,6 @@
 {
   "name": "ember-confetti",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Confetti rain components for Ember applications",
   "keywords": [
     "ember-addon",
