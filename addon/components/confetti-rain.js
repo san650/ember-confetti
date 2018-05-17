@@ -37,11 +37,11 @@ function randomFromTo(from, to) {
   return Math.floor(random() * (to - from + 1) + from);
 }
 
-function ConfettiParticle({ color, width, height, ctx }) {
+function ConfettiParticle({ color, width, height, ctx, maxParticles }) {
   this.x = random() * width; // x-coordinate
   this.y = (random() * height) - height; //y-coordinate
   this.r = randomFromTo(10, 30); //radius;
-  this.d = (random() * MAX_PARTICLES) + 10; //density;
+  this.d = (random() * maxParticles) + 10; //density;
   this.color = color;
   this.tilt = Math.floor(random() * 10) - 10;
   this.tiltAngleIncremental = (random() * 0.07) + 0.05;
@@ -75,6 +75,7 @@ const colorGenerator = {
 export default Component.extend({
   tagName: 'canvas',
   attributeBindings: ['style'],
+  maxParticles: MAX_PARTICLES,
 
   style: computed(function() {
     return htmlSafe(`
@@ -93,12 +94,13 @@ export default Component.extend({
   particles: computed(function() {
     let particles = [];
 
-    for (var i = 0; i < MAX_PARTICLES; i++) {
+    for (var i = 0; i < this.get('maxParticles'); i++) {
       particles.push(new ConfettiParticle({
         color: colorGenerator.getColor(),
         width: this.get('windowWidth'),
         height: this.get('windowHeight'),
-        ctx: this.get('context')
+        ctx: this.get('context'),
+        maxParticles: this.get('maxParticles')
       }));
     }
 
@@ -142,7 +144,7 @@ export default Component.extend({
     this.incrementProperty('angle', 0.01);
     this.incrementProperty('tiltAngle', 0.1);
 
-    for (var i = 0; i < MAX_PARTICLES; i++) {
+    for (var i = 0; i < this.get('maxParticles'); i++) {
       particle = this.get('particles')[i];
       this.stepParticle(particle, i);
       this.checkForReposition(particle, i);
