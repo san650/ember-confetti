@@ -28,6 +28,14 @@ The component will start a confetti rain when rendered or you can toggle the rai
 {{confetti-rain isEnabled=false}}
 ```
 
+### Number of particles
+
+By default, a total of 150 particles are rendered, you can change this number by setting `maxParticles`.
+
+```hbs
+{{confetti-rain maxParticles=10}}
+```
+
 ### Overriding z-index
 
 By default `z-index` is set to max 32bit integer value, to override this you can set a custom class to the component and set your desired `z-index` value.
