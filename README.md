@@ -94,14 +94,13 @@ $ ember install ember-confetti
 ```sh
 $ git clone https://github.com/san650/ember-confetti
 $ cd $_
-$ yarn          # (or npm install)
-$ bower install
+$ yarn
 ```
 
 Running tests
 
 ```sh
-$ npm test
+$ yarn test
 ```
 
 ## Project's health

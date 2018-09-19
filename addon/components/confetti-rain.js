@@ -94,7 +94,7 @@ export default Component.extend({
   particles: computed(function() {
     let particles = [];
 
-    for (var i = 0; i < this.get('maxParticles'); i++) {
+    for (let i = 0; i < this.get('maxParticles'); i++) {
       particles.push(new ConfettiParticle({
         color: colorGenerator.getColor(),
         width: this.get('windowWidth'),
@@ -132,7 +132,7 @@ export default Component.extend({
   draw() {
     this.get('context').clearRect(0, 0, this.get('windowWidth'), this.get('windowHeight'));
 
-    var results = this.get('particles').map(p => p.draw());
+    let results = this.get('particles').map(p => p.draw());
 
     this.update();
 
@@ -140,11 +140,11 @@ export default Component.extend({
   },
 
   update() {
-    var particle;
+    let particle;
     this.incrementProperty('angle', 0.01);
     this.incrementProperty('tiltAngle', 0.1);
 
-    for (var i = 0; i < this.get('maxParticles'); i++) {
+    for (let i = 0; i < this.get('maxParticles'); i++) {
       particle = this.get('particles')[i];
       this.stepParticle(particle, i);
       this.checkForReposition(particle, i);
