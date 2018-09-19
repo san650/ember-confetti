@@ -1,7 +1,7 @@
-{{confetti-rain class="foo-bar"}}
+{{confetti-rain class="foo-bar" isEnabled=isEnabled}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<button {{action "toggleTheRain"}}>
+  STOP
+</button>
 
 {{outlet}}
