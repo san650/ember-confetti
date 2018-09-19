@@ -112,7 +112,7 @@ export default Component.extend({
 
     schedule('afterRender', () => {
       //canvas init
-      var canvas = this.$().get(0);
+      let canvas = this.element;
 
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
